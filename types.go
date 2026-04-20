@@ -1,8 +1,8 @@
 package chippg
 
 type DeliveryMethod struct {
-	Method  string                 `json:"method"`
-	Options map[string]interface{} `json:"options"`
+	Method string `json:"method"`
+	// Options map[string]interface{} `json:"options"`
 }
 
 type Client struct {
@@ -76,10 +76,10 @@ type IssuerDetails struct {
 }
 
 type TransactionData struct {
-	PaymentMethod string                 `json:"payment_method"`
-	Extra         map[string]interface{} `json:"extra"`
-	Country       string                 `json:"country"`
-	Attempts      []TransactionAttempt   `json:"attempts"`
+	PaymentMethod string `json:"payment_method"`
+	// Extra         map[string]interface{} `json:"extra"`
+	Country  string               `json:"country"`
+	Attempts []TransactionAttempt `json:"attempts"`
 }
 
 type TransactionAttempt struct {
