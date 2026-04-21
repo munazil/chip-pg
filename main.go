@@ -18,7 +18,7 @@ type ClientConfig struct {
 	Secret  string `json:"secret" encore:"required"`
 }
 
-func NewChipPGClient(request ClientConfig) (ClientConfig, error) {
+func NewClient(request ClientConfig) (ClientConfig, error) {
 	_, err := govalidator.ValidateStruct(request)
 	if err != nil {
 		return ClientConfig{}, err
@@ -30,7 +30,18 @@ func NewChipPGClient(request ClientConfig) (ClientConfig, error) {
 func (c *ClientConfig) CreatePurchase(request CreatePurchaseRequest) (*PurchaseResponse, error) {
 	url := BASE_URL + "/purchases/"
 
-	payload, err := json.Marshal(request)
+	reqBody := createPurchaseRequest{
+		Client:                 request.Client,
+		Purchase:               request.Purchase,
+		BrandID:                c.BrandID,
+		SuccessRedirect:        request.SuccessRedirect,
+		FailureRedirect:        request.FailureRedirect,
+		CancelRedirect:         request.CancelRedirect,
+		SuccessCallback:        request.SuccessCallback,
+		PaymentMethodWhitelist: request.PaymentMethodWhitelist,
+	}
+
+	payload, err := json.Marshal(reqBody)
 	if err != nil {
 		return nil, err
 	}
