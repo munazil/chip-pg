@@ -10,7 +10,7 @@ type PurchaseResponse struct {
 	Payment                Payment             `json:"payment"`
 	IssuerDetails          IssuerDetails       `json:"issuer_details"`
 	TransactionData        TransactionData     `json:"transaction_data"`
-	Status                 string              `json:"status"`
+	Status                 Status              `json:"status"`
 	StatusHistory          []StatusHistoryItem `json:"status_history"`
 	ViewedOn               int64               `json:"viewed_on"`
 	CompanyID              string              `json:"company_id"`

@@ -27,7 +27,7 @@ func NewClient(request ClientConfig) (ClientConfig, error) {
 	return request, nil
 }
 
-func (c *ClientConfig) CreatePurchase(request CreatePurchaseRequest) (*PurchaseResponse, error) {
+func (c *ClientConfig) CreatePurchase(request PurchaseOption) (*PurchaseResponse, error) {
 	url := BASE_URL + "/purchases/"
 
 	reqBody := createPurchaseRequest{
