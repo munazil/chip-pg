@@ -4,9 +4,9 @@ type createPurchaseRequest struct {
 	Client                 CreatePurchaseRequestClient   `json:"client"`
 	Purchase               CreatePurchaseRequestPurchase `json:"purchase"`
 	BrandID                string                        `json:"brand_id"`
-	SuccessRedirect        string                        `json:"success_redirect"`
-	FailureRedirect        string                        `json:"failure_redirect"`
-	CancelRedirect         string                        `json:"cancel_redirect"`
+	SuccessRedirect        *string                       `json:"success_redirect,omitempty"`
+	FailureRedirect        *string                       `json:"failure_redirect,omitempty"`
+	CancelRedirect         *string                       `json:"cancel_redirect,omitempty"`
 	SuccessCallback        *string                       `json:"success_callback,omitempty"`
 	PaymentMethodWhitelist *[]string                     `json:"payment_method_whitelist,omitempty"`
 }
@@ -14,9 +14,9 @@ type createPurchaseRequest struct {
 type CreatePurchaseRequest struct {
 	Client                 CreatePurchaseRequestClient   `json:"client"`
 	Purchase               CreatePurchaseRequestPurchase `json:"purchase"`
-	SuccessRedirect        string                        `json:"success_redirect"`
-	FailureRedirect        string                        `json:"failure_redirect"`
-	CancelRedirect         string                        `json:"cancel_redirect"`
+	SuccessRedirect        *string                       `json:"success_redirect,omitempty"`
+	FailureRedirect        *string                       `json:"failure_redirect,omitempty"`
+	CancelRedirect         *string                       `json:"cancel_redirect,omitempty"`
 	SuccessCallback        *string                       `json:"success_callback,omitempty"`
 	PaymentMethodWhitelist *[]string                     `json:"payment_method_whitelist,omitempty"`
 }
