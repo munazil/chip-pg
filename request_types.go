@@ -22,7 +22,8 @@ type CreatePurchaseRequest struct {
 }
 
 type CreatePurchaseRequestClient struct {
-	Email string `json:"email"`
+	Email    string  `json:"email"`
+	FullName *string `json:"full_name,omitempty"`
 }
 
 type CreatePurchaseRequestPurchase struct {
